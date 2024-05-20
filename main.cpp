@@ -41,7 +41,7 @@ void Shuffle()
 
 int DefineType(int CardNumber)
 {
-	return CardNumber / 12;
+	return CardNumber / 13;
 }
 
 int DefineCard(int CardNumber)
