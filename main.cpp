@@ -1,33 +1,40 @@
 #include <iostream>
-#include <memory> //C++
+
 using namespace std;
 
-void Maniplate(int* CountPoint)
+void InsertAfter(int* Numbers, int Size, int Value)
 {
-	if (CountPoint)
+	//제일 뒤에 자료 추가
+	int* Temp = new int[Size + 1];
+
+	for (int i = 0; i < Size; ++i)
 	{
-		*CountPoint = 200;
+		Temp[i] = Numbers[i];
+	}
+	Temp[Size] = Value;
+
+	delete[] Numbers;
+	Numbers = Temp;
+
+	for (int i = 0; i < Size + 1; ++i)
+	{
+		cout << Numbers[i] << ",";
 	}
 }
 
 int main()
 {
-	int* CountPoint = new int;
-
-	if (CountPoint)
+	//[][][][][] //자료 구조
+	int Size = 10;
+	int* Numbers = new int[Size];
+	for (int i = 0; i < Size; ++i)
 	{
-		*CountPoint = 100;
+		Numbers[i] = i + 1;
 	}
 
-	Maniplate(CountPoint);
-	cout << *CountPoint << endl;
+	InsertAfter(Numbers, Size, 20);
 
-	delete CountPoint;
-	CountPoint = nullptr;
-	if (CountPoint)
-	{
 
-	}
 
 	return 0;
 }
