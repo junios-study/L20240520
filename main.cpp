@@ -1,40 +1,55 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
-void InsertAfter(int* Numbers, int Size, int Value)
+//custom DataType
+struct Vector2D
 {
-	//제일 뒤에 자료 추가
-	int* Temp = new int[Size + 1];
+	int X; 
+	int Y;
+};
 
-	for (int i = 0; i < Size; ++i)
-	{
-		Temp[i] = Numbers[i];
-	}
-	Temp[Size] = Value;
+struct Actor
+{
+	Vector2D Position;
+	char Shape;
+	string name;
+};
 
-	delete[] Numbers;
-	Numbers = Temp;
 
-	for (int i = 0; i < Size + 1; ++i)
-	{
-		cout << Numbers[i] << ",";
-	}
-}
+struct Color
+{
+	unsigned char R; 
+	unsigned char G;
+	unsigned char B;
+	int A;
+};
+
+
 
 int main()
 {
-	//[][][][][] //자료 구조
-	int Size = 10;
-	int* Numbers = new int[Size];
-	for (int i = 0; i < Size; ++i)
-	{
-		Numbers[i] = i + 1;
-	}
+	Actor* Player = new Actor; //Load
 
-	InsertAfter(Numbers, Size, 20);
+	(*Player).Position.X = 10;
+	Player->Position.X = 10;
+	(*Player).Position.Y = 10;
+	Player->Position.Y = 10;
+	Player->Shape = 'P';
+	Player->name = "바보";
 
+	cout << Player->Position.X << endl;
 
+	delete Player; //Save
 
 	return 0;
 }
+
+//DataType
+//int
+//float
+//char
+//bool
+//string
+// -> Make -> struct
