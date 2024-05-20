@@ -1,22 +1,33 @@
 #include <iostream>
-
+#include <memory> //C++
 using namespace std;
 
-int A;
+void Maniplate(int* CountPoint)
+{
+	if (CountPoint)
+	{
+		*CountPoint = 200;
+	}
+}
 
 int main()
 {
+	int* CountPoint = new int;
 
-	int A = 0;
-	int* P = new int;
+	if (CountPoint)
+	{
+		*CountPoint = 100;
+	}
 
-	*P = 10;
+	Maniplate(CountPoint);
+	cout << *CountPoint << endl;
 
-	cout << *P << endl;
+	delete CountPoint;
+	CountPoint = nullptr;
+	if (CountPoint)
+	{
 
-
-	
-	delete P;
+	}
 
 	return 0;
 }
