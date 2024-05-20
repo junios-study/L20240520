@@ -23,7 +23,6 @@ string CardType[4] = {"¡ß", "¢¼", "¢À", "¢¾"};
 
 void Shuffle()
 {
-	CardType[0]; 
 	for (int i = 0; i < 52; ++i)
 	{
 		Cards[i] = i;
